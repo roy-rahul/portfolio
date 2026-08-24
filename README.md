@@ -1,11 +1,11 @@
-# Rahul Roy Profile
+# Portfolio Webapp
 
 A modern personal portfolio website built with Next.js, Tailwind CSS, and React. The app presents a professional profile, project highlights, contact form, and includes authentication/email integration scaffolding for future secure admin flows.
 It has showcased AI chatbot, An ask about me bot, and video conference app.
 
 ## Overview
 
-This project serves as a personal portfolio and online presence for Rahul Roy. It includes:
+This project serves as a personal portfolio and online presence for Software Engineer. It includes:
 
 - A hero section and personal introduction
 - About me content
@@ -30,30 +30,36 @@ This project serves as a personal portfolio and online presence for Rahul Roy. I
 - bcryptjs for password hashing
 
 ## Project Structure
-
 ```bash
 .
-├── app/
-│   ├── globals.css
-│   ├── layout.tsx
-│   ├── page.tsx
-│   ├── lib/
-│   └── ui/
-├── auth.ts
-├── auth.config.ts
-├── components.json
-├── eslint.config.mjs
-├── next.config.ts
-├── next-env.d.ts
-├── package.json
-├── postcss.config.mjs
-├── tsconfig.json
-├── pnpm-lock.yaml
-├── public/
-├── shadcn-components/
-├── hooks/
-├── lib/
-└── README.md
+├── app/                          # Next.js app directory containing pages and global styles
+│   ├── api/                      # API route handlers
+│   │   ├── ai-chat/              # AI chatbot API endpoint
+│   │   ├── ask-ai-about-me/      # AI 'ask about me' bot API endpoint
+│   │   ├── connection-details/   # Connection details API
+│   │   └── record/               # Recording start/stop API
+│   ├── globals.css               # Global styles
+│   ├── layout.tsx                # Root layout component
+│   ├── page.tsx                  # Home page component
+│   └── lib/                     # App-specific libraries and utilities
+├── components.json               # JSON configuration for components (if used)
+├── eslint.config.mjs             # ESLint configuration
+├── next.config.ts                # Next.js configuration
+├── next-env.d.ts                 # Next.js TypeScript env types
+├── package.json                  # Project dependencies and scripts
+├── pnpm-lock.yaml               # Package lock for pnpm
+├── pnpm-workspace.yaml          # pnpm workspace configuration
+├── postcss.config.mjs            # PostCSS configuration
+├── public/                      # Static public assets like images
+│   └── background-images/       # Background images used in the app
+├── projects/                    # Individual project modules/sections
+├── shadcn-components/           # UI components inspired by shadcn/ui
+├── styles/                      # CSS modules and global styles
+├── hooks/                       # Custom React hooks
+├── lib/                        # General libraries and utility functions
+├── ui/                         # UI components and shared UI helper files
+└── README.md                    # Project README
+```
 ```
 
 ## Features
@@ -82,7 +88,7 @@ Before running the project, make sure you have:
 
 ```bash
 git clone <your-repository-url>
-cd rahul-roy-profile
+cd portfolio
 ```
 
 2. Install dependencies:
@@ -168,4 +174,3 @@ This README reflects the current implementation of the project. As the app evolv
 - Video Conference app setup
 - deployment and CI/CD documentation
 
-If you want, I can also tailor this README for a more polished personal brand version with sections like Technologies, Experience, Featured Work, and Contact. 
