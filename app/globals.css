@@ -1,0 +1,189 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Base Palette Variables (Light Mode Default) */        /* Crisp Silver-White */        /* Deep Midnight text */
+  --surface: #FFFFFF;           /* Card background */
+  --surface-border: #94A3B8;    /* Muted Silver Border */
+
+  /* Theme Color Tokens */
+  --brand-primary: #4A6CD4;     /* Periwinkle Blue Logo/Brand */
+  /* --brand-dark: #0284C7;        Deep Accent Blue (Renamed from brand-hover) */
+  --sky-accent: #38BDF8;        /* Electric Sky Accent */
+  --midnight: #0B0F17;          /* Deep Midnight */
+  --slate-navy: #1E293B;        /* Slate Navy */
+  --silver-muted: #94A3B8;      /* Brushed Silver */
+
+  /* Brand Palette scale (Anchored at #0284C7 as brand-600) */
+  --brand-light: #F0F9FF;
+  --brand-100: #E0F2FE;
+  --brand-200: #BAE6FD;
+  --brand-300: #7DD3FC;
+  --brand-400: #38BDF8;
+  --brand-500: #0EA5E9;
+  --brand-600: #0284C7; /* Primary Base */
+
+  /* Darker Brand Shades */
+  --brand-700: #0369A1; /* Deep Oceanic Blue (Active buttons / Hover states) */
+  --brand-800: #075985; /* Muted Navy Blue */
+  --brand-900: #0C4A6E; /* Dark Slate Navy (Card Backgrounds / Borders) */
+  --brand-950: #082F49; /* Deepest Midnight Blue (Background Elements) */ --background: oklch(1 0 0); --foreground: oklch(0.145 0 0); --card: oklch(1 0 0); --card-foreground: oklch(0.145 0 0); --popover: oklch(1 0 0); --popover-foreground: oklch(0.145 0 0); --primary: oklch(0.52 0.105 223.128); --primary-foreground: oklch(0.984 0.019 200.873); --secondary: oklch(0.967 0.001 286.375); --secondary-foreground: oklch(0.21 0.006 285.885); --muted: oklch(0.97 0 0); --muted-foreground: oklch(0.556 0 0); --accent: oklch(0.97 0 0); --accent-foreground: oklch(0.205 0 0); --destructive: oklch(0.577 0.245 27.325); --border: oklch(0.922 0 0); --input: oklch(0.922 0 0); --ring: oklch(0.708 0 0); --chart-1: oklch(0.87 0 0); --chart-2: oklch(0.556 0 0); --chart-3: oklch(0.439 0 0); --chart-4: oklch(0.371 0 0); --chart-5: oklch(0.269 0 0); --radius: 0.625rem; --sidebar: oklch(0.985 0 0); --sidebar-foreground: oklch(0.145 0 0); --sidebar-primary: oklch(0.609 0.126 221.723); --sidebar-primary-foreground: oklch(0.984 0.019 200.873); --sidebar-accent: oklch(0.97 0 0); --sidebar-accent-foreground: oklch(0.205 0 0); --sidebar-border: oklch(0.922 0 0); --sidebar-ring: oklch(0.708 0 0);
+
+  --gray-gradient: radial-gradient(circle at 50% 50%, #FFFFFF 0%, #1E293B 99%);
+}
+
+/* Dark Mode Configuration */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface: #1E293B;
+    --surface-border: rgba(148, 163, 184, 0.2);
+  }
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --surface: #1E293B;
+  --surface-border: rgba(148, 163, 184, 0.2);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.45 0.085 224.283);
+  --primary-foreground: oklch(0.984 0.019 200.873);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.715 0.143 215.221);
+  --sidebar-primary-foreground: oklch(0.302 0.056 229.695);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+/* Tailwind CSS v4 Theme Extension */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-border: var(--surface-border);
+
+  /* Custom Color Utility Names */
+  --color-brand: var(--brand-primary);
+  /* --color-brand-dark: var(--brand-dark); Fixed: Removed '-hover' to prevent conflict */
+  --color-sky-accent: var(--sky-accent);
+  --color-midnight: var(--midnight);
+  --color-slate-navy: var(--slate-navy);
+  --color-silver: var(--silver-muted);
+
+  /* Font Configurations */
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono), monospace;
+
+  --color-brand-light: var(--brand-light);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+
+  --background-image-gray-gradient: var(--gray-gradient);
+
+
+  /* Darker Theme Extensions */
+  --color-brand-700: var(--brand-700);
+  --color-brand-800: var(--brand-800);
+  --color-brand-900: var(--brand-900);
+  --color-brand-950: var(--brand-950);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --inset-shadow-md: inset 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+body {
+  /* background-color: var(--background); */
+  background-color: var(--slate-navy, #1E293B);
+  background-image: radial-gradient(circle at 20% 30%, #FFFFFF 0%, #1E293B 99%);
+  /* background-color: #0B0F17;
+  background-image: radial-gradient(
+    circle at 50% 0%,
+    rgba(2, 132, 199, 0.25) 0%,
+    rgba(11, 15, 23, 0.95) 60%,
+    #0B0F17 100%
+  ); */
+  background-attachment: fixed;
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
